@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Установить библиотеки",
+            "type": "shell",
+            "command": "python -m pip install -r requirements.txt pyinstaller",
+            "linux": { "command": "python3 -m pip install -r requirements.txt pyinstaller" },
+            "problemMatcher": []
+        },
+        {
+            "label": "Собрать exe (PyInstaller)",
+            "type": "shell",
+            "command": "python -m PyInstaller --noconfirm cinema.spec; copy cinema_app\\config.example.ini dist\\config.ini",
+            "linux": {
+                "command": "python3 -m PyInstaller --noconfirm cinema.spec && cp cinema_app/config.example.ini dist/config.ini"
+            },
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": []
+        }
+    ]
+}
